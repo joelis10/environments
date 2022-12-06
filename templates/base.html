@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %} - FlaskApp</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        nav {
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+            color: aquamarine;
+            font-size: 25px;
+            margin-left: 50px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: aqua;
+        }
+
+        .content {
+            margin: 10px;
+        }
+
+        .title {
+            font-size: 15px;
+            font-weight: normal;
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .title::before {
+            content: "The page you're currently on is: "
+        }
+
+        .comment {
+            padding: 10px;
+            margin-bottom: 0;
+        }
+
+        .comment:first-of-type {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .comment:last-of-type {
+            border-radius: 0 0 10px 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('hello')}}">FlaskApp</a>
+        <a href="{{ url_for('about')}}">About</a>
+        <a href="{{ url_for('comments')}}">Comments</a>
+        <a href="{{ url_for('messages')}}">Messages</a>
+    </nav>
+
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
