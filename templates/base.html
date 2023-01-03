@@ -60,18 +60,38 @@
             border-radius: 0 0 10px 10px;
         }
 
+        .alert {
+            padding: 20px;
+            margin: 5px;
+            color: white;
+            background-color: red;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .post {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
     </style>
 
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('hello')}}">FlaskApp</a>
-        <a href="{{ url_for('about')}}">About</a>
-        <a href="{{ url_for('comments')}}">Comments</a>
-        <a href="{{ url_for('messages')}}">Messages</a>
+        <a href="{{ url_for('hello') }}">FlaskApp</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('comments') }}">Comments</a>
+        <a href="{{ url_for('messages') }}">Messages</a>
+        <a href="{{ url_for('create') }}">Create</a>
+        <a href="{{ url_for('form') }}">Form</a>
+        <a href="{{ url_for('courses') }}">Courses</a>
+        <a href="{{ url_for('posts') }}">posts</a>
     </nav>
 
     <div class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
         {% block content %} {% endblock %}
     </div>
 </body>
